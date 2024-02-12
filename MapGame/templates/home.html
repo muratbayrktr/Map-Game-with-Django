@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  
+<div class="map-container">
+
+
+  <svg id="map_area" height="1024" width="1024">
+    <image id="map" alt="Map Placeholder" height="1024" width="1024">
+    <!-- Include the image using the <image> tag -->
+      
+
+    {% for obj in objects %}
+        <text x="{{ obj.x }}" y="{{ obj.y }}" fill="{{ obj.color }}" font-size="10px">{{ obj.name }}</text>
+        <circle cx="{{ obj.x }}" cy="{{ obj.y }}" r="5" fill="{{ obj.color }}"/>
+    {% endfor %}
+  </svg> 
+
+</div>
+
+  
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">Log In</a> |
+  <a href="{% url 'signup' %}">Sign Up</a>
+{% endif %}
+{% endblock %}
+

@@ -1,0 +1,18 @@
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS maps;
+
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    player_uuid VARCHAR(255) UNIQUE
+);
+
+CREATE TABLE maps (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    width INTEGER NOT NULL,
+    height INTEGER NOT NULL,
+    map_uuid VARCHAR(255) NOT NULL UNIQUE
+);
+

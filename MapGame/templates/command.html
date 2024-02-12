@@ -1,0 +1,37 @@
+
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block title %}Command{% endblock %}
+
+{% block content %}
+    <!-- <h1>Command Form</h1>
+    <form method="POST" action="{% url 'command' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    <p>{{ response }}</p> -->
+    <!-- Draw the map from image variable first it is a PIL.Image object -->
+    
+
+    <!-- <html>
+        <body>
+            {% if image_path %}
+            <svg height="1024" width="1024"> -->
+                <!-- Include the image using the <image> tag -->
+                <!-- <image href="{% static 'map.png' %}" height="1024" width="1024"/>
+        
+                {% for obj in objects %}
+                    <text x="{{ obj.x }}" y="{{ obj.y }}" fill="{{ obj.color }}" font-size="10px">{{ obj.name }}</text>
+                    <circle cx="{{ obj.x }}" cy="{{ obj.y }}" r="5" fill="{{ obj.color }}"/>
+                {% endfor %}
+            </svg> 
+            {% endif %}
+        </body>
+    </html> -->
+
+
+        
+{% endblock %}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>{% block title %}Map Making Game{% endblock %}</title>
+  <style>
+    .logout-link {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 10px;
+    }
+    /* Additional styles to ensure the rest of the content is not hidden behind the logout link */
+    body {
+      padding-top: 50px; /* Adjust this value to match the height of the logout link */
+      /* Set background color to dark blue */
+      background-color: #5e72e4;
+    }
+
+    .map-container {
+        width: 1024px; /* Same width as your SVG */
+        height: 1024px; /* Same height as your SVG */
+        border: 2px solid #000; /* A solid black border; adjust color and width as needed */
+        position: relative; /* For absolute positioning of child elements */
+    }
+    .map-placeholder {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    .logout-link {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 10px;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <main>
+    <div style="width:1024px; margin: 0 auto; display: block;">
+      <div id="username" style = "background-color: #ff8d72;">{{ user.username }}</div>
+      <div id="status" style="background-color: #ffa0a0;">not connected </div>
+      <div class="logout-link">
+        <a href="{% url 'logout' %}">Log Out</a>
+      </div>
+      <table id="stable"><tr><th colspan="2">Maps</th></tr>
+      </table>
+      <button onClick="listmaps();">List Maps</button> 
+      <button onClick="collapse();">Collapse Maps</button>
+      </br>
+      <br>
+      <select id="newmapselect">
+        <option value="0">Select Map</option>
+        <option value="amazon1">Amazon 1</option>
+        <option value="amazon2">Amazon 2</option>
+        <option value="amazon3">Amazon 3</option>
+        <option value="amazon4">Amazon 4</option>
+        <option value="frozen1">Frozen 1</option>
+        <option value="frozen2">Frozen 2</option>
+        <option value="frozen3">Frozen 3</option>
+        <option value="middle_east1">Middle East 1</option>
+        <option value="middle_east2">Middle East 2</option>
+        <option value="tundra1">Tundra</option>
+      </select>
+      <button onClick="newmap();">New Map</button></br>
+      <ul id = "maplist">
+        <!-- Map list will go here -->
+        <!-- Button to create new map -->
+      </ul>
+      <!-- <input id="newid" value="" onKeyPress="sendenter(event,addNewId);"/><button onClick="addNewId();">Add</button></br> -->
+      <!-- </div> -->
+      <div style="width:400px; display:inline-block; vertical-align:top">
+      <input id="newmess" value="" onKeyPress="sendenter(event,addMess);"/> 
+      <button onClick="addMess();">Send</button></br>
+  
+      <ul id='messagelist'>
+      </ul>
+    </div>
+    {% block content %}
+
+    {% endblock %}
+  </main>
+  <!-- Static folder is STATIC_URL -->
+  {% load static %}
+  <script src="{% static 'js/websocket.js' %}"></script>
+  <!-- <script src="{{ STATIC_URL }}js/jquery-3.2.1.min.js"></script> -->
+
+</body>
+</html>

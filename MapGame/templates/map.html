@@ -1,0 +1,22 @@
+<html>
+    <body>
+    <svg height="1024" width="1024">
+      <text x="100" y="150" fill="red" font-size="10px">Apple</text>
+      <circle cx="100" cy="150" r="5" fill="red"/>
+      <text x="200" y="50" fill="orange" font-size="10px">Orange</text>
+      <circle cx="200" cy="50" r="5" fill="orange"/>
+      <text x="100" y="175" fill="green" font-size="10px">Pear</text>
+      <circle cx="100" cy="175" r="5" fill="green"/>
+    </svg> 
+    </body>
+</html>
+<html>
+    <body>
+    <svg height="1024" width="1024">
+    {% for obj in objects %}
+      <text x="{{obj.x}}" y="{{obj.y}}" fill="{{obj.color}}" font-size="10px">{{obj.name}}</text>
+      <circle cx="{{obj.x}}" cy="{{obj.y}}" r="5" fill="{{obj.color}}"/>
+    {% endfor %}
+    </svg> 
+    </body>
+</html>
